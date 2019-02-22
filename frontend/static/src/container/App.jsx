@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import OrderTable from "../components/OrderTable";
-// import OrderTable from '../components/OrderTable.jsx';
+// import OrderTable from "../components/OrderTable";
+import OrderTable from '../components/OrderTable.jsx';
 import OrderForm from '../components/OrderForm.jsx';
 
 
@@ -45,7 +45,7 @@ class App extends Component {
       headers: new Headers({"Content-Type": "application/json"})
     };
 
-    fetch(`${process.env.REACT_APP_API_HOST}/api/order/`, conf).then((response) => {
+    fetch(`${process.env.REACT_APP_API_HOST}/api/orders/`, conf).then((response) => {
       if (response.status !== 201) {
         // There was an error so roll back the state
         // var jobs = this.state.jobs;
@@ -57,9 +57,9 @@ class App extends Component {
 
       return response.json();
     }).then((order) => {
-      const {orders} = this.state;
-      orders.push(order);
-      this.setState({orders: orders});
+      const {order} = this.state;
+      order.push(order);
+      this.setState({order: order});
     });
   };
 

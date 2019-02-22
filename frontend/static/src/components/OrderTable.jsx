@@ -22,7 +22,7 @@ function OrderTable(props){
         <tbody>
           {orders.map(order => (
             <tr key={order.id}>
-              {Object.entries(order).map(el => <td key={`${order.id}-${el[0]}`}>{el[1]}</td>)}
+              {Object.entries(orders).map(el => <td key={`${order.id}-${el[0]}`}>{el[1]}</td>)}
             </tr>
           ))}
         </tbody>
