@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 function OrderTable(props){
   var orders = props.orders;
   console.log(orders);
+  // console.log('order', order);
 
-    // return(
   return !orders.length ? (
     <p>No Orders</p>
   ) : (

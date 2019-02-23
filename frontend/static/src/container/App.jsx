@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import OrderTable from '../components/OrderTable.jsx';
 import OrderForm from '../components/OrderForm.jsx';
+// import MenuList from "../components/menu.jsx";
+import Menu from "../components/menu.jsx";
 
 
 
@@ -77,7 +79,14 @@ class App extends Component {
     }
 
     return (
+
+
+
       <div className="App">
+        <div className='menu'>
+
+          <Menu/>
+        </div>
 
         {loadingMessage}
 
@@ -96,6 +105,7 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
 
