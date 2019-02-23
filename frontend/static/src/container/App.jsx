@@ -33,10 +33,11 @@ class App extends Component {
       return response.json();
     }).then((data) => {
       this.setState({orders: data, loaded: true});
+      console.log('success')
     });
   }
 
-  addOrder = (orders) => {
+  addOrder = (order) => {
     // Optimistically add the order to the orders array on the state
     // const {jobs} = this.state;
     // jobs.push(job);
@@ -44,7 +45,7 @@ class App extends Component {
 
     const conf = {
       method: "post",
-      body: JSON.stringify(orders),
+      body: JSON.stringify(order),
       headers: new Headers({"Content-Type": "application/json"})
     };
 

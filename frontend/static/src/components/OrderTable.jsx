@@ -6,7 +6,7 @@ function OrderTable(props){
   var orders = props.orders;
   console.log(orders);
 
-
+    // return(
   return !orders.length ? (
     <p>No Orders</p>
   ) : (
@@ -24,7 +24,7 @@ function OrderTable(props){
         <tbody>
           {orders.map(order => (
             <tr key={order.id}>
-              {Object.entries(orders).map(el => <td key={`${order.id}-${el[0]}`}>{el[1]}</td>)}
+              {Object.entries(order).map(el => <td key={`${order.id}-${el[0]}`}>{el[1]}</td>)}
             </tr>
           ))}
         </tbody>
