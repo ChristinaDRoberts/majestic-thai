@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 
 class OrderForm extends Component {
@@ -9,6 +9,8 @@ class OrderForm extends Component {
     message: ""
   };
 
+
+  //when someone types in input box it will trigger this function
   handleChange = e => {
     this.setState({[e.target.name]: e.target.value});
   };

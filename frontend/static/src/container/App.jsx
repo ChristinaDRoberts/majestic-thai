@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import OrderTable from "../components/OrderTable";
+
 import OrderTable from '../components/OrderTable.jsx';
 import OrderForm from '../components/OrderForm.jsx';
+
 
 
 class App extends Component {
@@ -12,7 +13,9 @@ class App extends Component {
       loaded: false,
       placeholder: 'Loading...',
       orders: []
+
     };
+
   }
 
   componentDidMount(){
@@ -33,15 +36,15 @@ class App extends Component {
     });
   }
 
-  addOrder = (order) => {
-    // Optimistically add the job to the jobs array on the state
+  addOrder = (orders) => {
+    // Optimistically add the order to the orders array on the state
     // const {jobs} = this.state;
     // jobs.push(job);
     // this.setState({jobs: jobs});
 
     const conf = {
       method: "post",
-      body: JSON.stringify(order),
+      body: JSON.stringify(orders),
       headers: new Headers({"Content-Type": "application/json"})
     };
 
@@ -57,9 +60,11 @@ class App extends Component {
 
       return response.json();
     }).then((order) => {
-      const {order} = this.state;
-      order.push(order);
-      this.setState({order: order});
+
+      //was getting error with const instead of var under here
+      const {orders} = this.state;
+      orders.push(order);
+      this.setState({orders: orders});
     });
   };
 
