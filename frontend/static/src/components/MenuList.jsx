@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import React from 'react';
 
 
-class ServiceChooser extends Component {
+class OrderChooser extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,17 +19,17 @@ class ServiceChooser extends Component {
 
     render() {
         var self = this;
-        var services = this.props.orders.map(function (s) {
+        this.orders = this.props.orders.map(function (s) {
             return (
-                <Service name={s.name} price={s.price} active={s.active} addTotal={self.addTotal}/>
+                <MenuList name={item.name} price={item.price} active={item.active} addTotal={self.addTotal}/>
             );
         });
 
         return (
             <div>
-                <h1>Our services</h1>
+                <h1>Our Menu Items</h1>
                 <div id="services">
-                    {services}
+                    {items}
                     <p id="total">Total<b>${this.state.total.toFixed(2)}</b></p>
                 </div>
             </div>
@@ -38,13 +38,14 @@ class ServiceChooser extends Component {
     }
 }
 
-class Service extends Component {
+class MenuList extends Component {
         constructor(props) {
             super(props);
-             this.state(props) (function(s) {
+             this.state(props) (function() {
                 return {active: false};
+
             },
-            this.props = [
+            this.props.items = [
                 {name: 'Pad Thai', price: 17},
                 {name: 'Khao Pad', price: 14},
                 {name: 'Gaeng Daeng', price: 12},
@@ -70,12 +71,9 @@ class Service extends Component {
 }
 
 
-// Render the ServiceChooser component, and pass the array of services
-// React.render(<ServiceChooser items={ services } />, document.getElementById('container'));
 
 
-
-export default ServiceChooser
+export default MenuList
 
 
 
