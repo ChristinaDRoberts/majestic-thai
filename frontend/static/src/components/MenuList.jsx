@@ -1,42 +1,7 @@
 import React, { Component } from 'react';
-// import React from 'react';
 
 
-class OrderChooser extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            total: 0
-        };
-
-
-        this.addTotal = this.addTotal.bind(this);
-    }
-
-    addTotal(price) {
-        this.setState({total: this.state.total + price});
-    }
-
-    render() {
-        var self = this;
-        this.orders = this.props.orders.map(function (s) {
-            return (
-                <MenuList name={item.name} price={item.price} active={item.active} addTotal={self.addTotal}/>
-            );
-        });
-
-        return (
-            <div>
-                <h1>Our Menu Items</h1>
-                <div id="services">
-                    {items}
-                    <p id="total">Total<b>${this.state.total.toFixed(2)}</b></p>
-                </div>
-            </div>
-        );
-
-    }
-}
+\
 
 class MenuList extends Component {
         constructor(props) {
@@ -45,7 +10,7 @@ class MenuList extends Component {
                 return {active: false};
 
             },
-            this.props.items = [
+            this.state.item = [
                 {name: 'Pad Thai', price: 17},
                 {name: 'Khao Pad', price: 14},
                 {name: 'Gaeng Daeng', price: 12},
@@ -92,7 +57,7 @@ export default MenuList
 //         // let items = this.props.menuItems.map(function (item, index) {
 //
 //                 return (
-//                   <li className="menu-fish">
+//                   <li className="menu">
 //                     {/*<img src={details.image} alt={details.name}/>*/}
 //                     <h3 className="item-name">{details.name} </h3>
 //                     <p>{details.message}</p>

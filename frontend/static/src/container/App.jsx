@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 
 import OrderTable from '../components/OrderTable.jsx';
 import OrderForm from '../components/OrderForm.jsx';
-
+import Calculator from '../components/Calculator.jsx';
 import Menu from "../components/menu.jsx";
-import  "../components/MenuList";
-import ServiceChooser from "../components/MenuList";
+import MenuList from "../components/MenuList";
 
 
 
@@ -86,15 +85,15 @@ class App extends Component {
 
       <div className="App">
         <div className='menu'>
-
           <Menu/>
-
         </div>
 
-        <div className='ServiceChooser'>
-        <ServiceChooser/>
+        <div className='Calculator'>
+          <Calculator/>
+        </div>
 
-
+        <div className="MenuList">
+          <MenuList/>
         </div>
 
         {loadingMessage}
