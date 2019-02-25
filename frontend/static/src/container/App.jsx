@@ -40,36 +40,41 @@ class App extends Component {
     });
   }
 
-  addOrder = (order) => {
-    // Optimistically add the order to the orders array on the state
-    // const {jobs} = this.state;
-    // jobs.push(job);
-    // this.setState({jobs: jobs});
+  addOrder = (menuItem) => {
+    const {orders} = this.state;
+    orders.push(menuItem);
+    this.setState({orders: orders});
 
     const conf = {
       method: "post",
-      body: JSON.stringify(order),
+      body: JSON.stringify(menuItem),
       headers: new Headers({"Content-Type": "application/json"})
     };
 
-    fetch(`${process.env.REACT_APP_API_HOST}/api/orders/`, conf).then((response) => {
-      if (response.status !== 201) {
-        // There was an error so roll back the state
-        // var jobs = this.state.jobs;
-        // jobs.pop();
-        // return this.setState({placeholder: "Something went wrong", jobs: jobs});
+  //   fetch(`${process.env.REACT_APP_API_HOST}/api/orders/`, conf).then((response) => {
+  //     if (response.status !== 201) {
+  //       // There was an error so roll back the state
+  //       // var jobs = this.state.jobs;
+  //       // jobs.pop();
+  //       // return this.setState({placeholder: "Something went wrong", jobs: jobs});
+  //
+  //       return this.setState({placeholder: "Something went wrong"});
+  //     }
+  //
+  //     return response.json();
+  //   }).then(() => {
+  //
+  //     //was getting error with const instead of var under here
+  //     const {orders} = this.state;
+  //     orders.push(order);
+  //     this.setState({orders: orders});
+  //   });
 
-        return this.setState({placeholder: "Something went wrong"});
-      }
-
-      return response.json();
-    }).then((order) => {
-
-      //was getting error with const instead of var under here
-      const {orders} = this.state;
-      orders.push(order);
+    //{} means unpack it and set it to current state, make it a variable called orders
+     const {orders} = this.state;
+      orders.push(menuItem);
       this.setState({orders: orders});
-    });
+
   };
 
   render() {
@@ -93,7 +98,7 @@ class App extends Component {
         </div>
 
         <div className="MenuList">
-          <MenuList/>
+          <MenuList />
         </div>
 
         {loadingMessage}

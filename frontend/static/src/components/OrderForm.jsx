@@ -3,11 +3,6 @@ import PropTypes from "prop-types";
 
 
 class OrderForm extends Component {
-  state = {
-    status: "",
-    name: "",
-    message: ""
-  };
 
 
   //when someone types in input box it will trigger this function
@@ -18,33 +13,21 @@ class OrderForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const {status, name, message} = this.state;
-    const order = {status, name, message};
+    const {name, price} = this.state;
+    const order = {name, price};
 
     this.props.addOrder(order);
-    this.setState({status: '', name: '', message: ''});
+    this.setState({name: '', price: ''});
   };
 
   render() {
-    const {status, name, message} = this.state;
+    const {name, price} = this.state;
 
     return (
       <div className="column">
         <form onSubmit={this.handleSubmit}>
 
-          <div className="field">
-            <label className="label">Status</label>
-            <div className="control">
-              <input
-                className="input"
-                type="text"
-                name="status"
-                onChange={this.handleChange}
-                value={status}
-                required
-              />
-            </div>
-          </div>
+
 
           <div className="field">
             <label className="label">Name</label>
@@ -61,12 +44,12 @@ class OrderForm extends Component {
           </div>
 
           <div className="field">
-            <label className="label">Message</label>
+            <label className="label">Price</label>
             <div className="control">
               <textarea
                 className="textarea"
                 type="text"
-                name="message"
+                name="price"
                 onChange={this.handleChange}
                 value={message}
                 required

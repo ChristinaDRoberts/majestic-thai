@@ -14,15 +14,13 @@ class Calculator extends Component {
         this.addTotal = this.addTotal.bind(this);
     }
 
-    addTotal(price) {
-        this.setState({total: this.state.total + price});
-    }
+
 
     render() {
         var self = this;
         this.orders = this.props.orders.map(function (s) {
             return (
-                <MenuList name={item.name} price={item.price} active={item.active} addTotal={self.addTotal}/>
+                {/*<MenuList name={item.name} price={item.price} active={item.active} addTotal={self.addTotal}/>*/}
             );
         });
 
@@ -41,3 +39,6 @@ class Calculator extends Component {
 
 
 export default Calculator
+
+
+// different syntax , used as a guide see https://codepen.io/trzl47/pen/egWOvV
