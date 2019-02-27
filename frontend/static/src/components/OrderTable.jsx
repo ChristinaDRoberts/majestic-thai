@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 function OrderTable(props){
-  var orders = props.orders;
+  var orders = props.order;
   console.log(orders);
   // console.log('order', order);
 
